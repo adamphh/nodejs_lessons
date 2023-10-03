@@ -1,0 +1,27 @@
+1. File .env
+- Nếu không cần lưu trữ những thông tin nhạy cảm trong code thì không cần file .env
+- Sử dụng để lưu các biến môi trường của ứng dụng mà ta không muốn fixed cứng trong code: 
+    VD: api_key, username, password, host, port của database...
+2. Sự khác nhau giữa file env và file configs
+- các tệp config dùng để lưu trữ, cài đặt và tùy chọn cấu hình cho ứng dụng
+- tệp config này lưu được nhiều định dạng như json, xml, 
+- các tệp config không dùng để lưu trữ các thông tin nhạy cảm
+
+Sự khác nhau chính: 
+- configs: dùng để kiểm soát, lưu trữ những cài đặt của ứng dụng, không lưu trữ các thông tin nhạy cảm
+
+3. Triển khai cấu hình ứng dụng với file .env và file configs ở 3 levels 
+- Cài đặt dotenv npm i dotenv
+- khai báo dotenv trong file app.js
+    require('dotenv').config()
+- Khai báo các thông tin nhạy cảm trong file .env
+    PORT=3052
+
+- Trong file server.js khai báo port lấy từ process.env.PORT
+
+- Tạo file configs: 
+    + /configs/config.mongodb.js
+    + Khai báo thông tin database, port
+    + trong file /dbs/init.mongodb.js, thêm dòng
+    
+

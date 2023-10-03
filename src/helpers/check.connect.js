@@ -12,7 +12,7 @@ const countConnect = () => {
 }
 
 /** Check overload connection */
-checkOverLoad = () => {
+const checkOverLoad = () => {
     setInterval(() => {
         // get num of connections
         const numConnections = mongoose.connect.length
