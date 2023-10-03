@@ -32,6 +32,7 @@
 4. Khai báo file app.js
     - Khai báo các middlewares, routes, db
 5. Khai báo file server.js: Là file khởi động network js. 
+    - chỉ làm nhiệm vụ khai báo server
     - Require file (module) app vào
     - khai báo port cho server
 6. Start server:

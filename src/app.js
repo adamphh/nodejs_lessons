@@ -6,20 +6,27 @@ const compression = require("compression");
 const app = express();
 
 // Init middlewares
-/* use morgan */
-app.use(morgan('dev'))
+//  install morgan:  npm i morgan --save-dev
+/* use morgan: in ra các log khi 1 người dùng chạy một request. Morgan  có  5  loại */
+app.use(morgan('dev'))  //Trạng thái code được tô màu
 // app.use(morgan('combined'))
 // app.use(morgan('common'))
 // app.use(morgan('short'))
 // app.use(morgan('tiny'))
 
 /* use Helmet*/
-app.use(helmet())
+app.use(helmet())   //ngăn chặn đọc các thông tin nhạy cảm, cookie...  =>  bảo  mật
 
 /* use compression */
 app.use(compression())
 
 // Init db
+// require('./dbs/init.mongodb.lv0')
+require('./dbs/init.mongodb')
+// const { countConnect } = require('./helpers/check.connect')
+// countConnect()
+const { checkOverLoad } = require('./helpers/check.connect')
+checkOverLoad()
 
 // Init routers
 app.get('/', (req, res, next) => {
